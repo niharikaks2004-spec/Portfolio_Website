@@ -601,6 +601,88 @@
     letter-spacing:0.04em;
   }
 
+  /* ---------- Nav active link ---------- */
+  .nav-links a.active{
+    color:var(--amber);
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- Back to top ---------- */
+  .back-to-top{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--bg-panel-soft);
+    border:1px solid var(--line-strong);
+    backdrop-filter:blur(6px);
+    color:var(--text-primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-mono);
+    font-size:16px;
+    cursor:pointer;
+    z-index:60;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:opacity .25s ease, transform .25s ease, border-color .2s ease, visibility .25s ease;
+  }
+  .back-to-top.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+  .back-to-top:hover{
+    border-color:var(--teal);
+    color:var(--teal);
+  }
+
+  /* ---------- Copy toast ---------- */
+  .copy-toast{
+    position:fixed;
+    left:50%;
+    bottom:28px;
+    transform:translate(-50%, 12px);
+    background:var(--bg-panel);
+    border:1px solid var(--line-strong);
+    color:var(--text-primary);
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    padding:10px 18px;
+    border-radius:8px;
+    z-index:70;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+  }
+  .copy-toast.show{
+    opacity:1;
+    visibility:visible;
+    transform:translate(-50%, 0);
+  }
+
+  .copy-hint{
+    font-family:var(--font-mono);
+    font-size:10px;
+    color:var(--text-faint);
+    margin-left:4px;
+  }
+
   /* ---------- Responsive ---------- */
   @media (max-width:760px){
     .about-grid{grid-template-columns:1fr;}
@@ -661,7 +743,7 @@
     </div>
   </header>
 
-  <section class="section" id="about">
+  <section class="section reveal" id="about">
     <div class="wrap">
       <div class="eyebrow">Mission Brief</div>
       <h2>About</h2>
@@ -688,7 +770,7 @@
     </div>
   </section>
 
-  <section class="section" id="skills">
+  <section class="section reveal" id="skills">
     <div class="wrap">
       <div class="eyebrow">Skill Matrix</div>
       <h2>Languages &amp; Tools</h2>
@@ -699,16 +781,18 @@
         <div class="pill"><span class="idx">&gt;</span>Python</div>
         <div class="pill"><span class="idx">&gt;</span>HTML / CSS</div>
         <div class="pill"><span class="idx">&gt;</span>JavaScript</div>
+        <div class="pill"><span class="idx">&gt;</span>SQL</div>
+        <div class="pill"><span class="idx">&gt;</span>MongoDB</div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="projects">
+  <section class="section reveal" id="projects">
     <div class="wrap">
       <div class="eyebrow">Project Log</div>
       <h2>Things I've Built</h2>
 
-      <div class="project-card panel">
+      <div class="project-card panel reveal">
         <div class="project-top">
           <h3>Medinexus — Intelligent Medical Control Hub</h3>
           <span class="tag">Web App</span>
@@ -725,10 +809,10 @@
         </div>
       </div>
 
-      <div class="project-card panel">
+      <div class="project-card panel reveal">
         <div class="project-top">
           <h3>Natural Disaster Tracker</h3>
-          <span class="tag">Dashboard</span>
+          <span class="tag">Web App</span>
         </div>
         <ul>
           <li>Built a real-time platform aggregating live data from NASA EONET, USGS, and ReliefWeb to monitor earthquakes, floods, wildfires, volcanoes, and landslides worldwide.</li>
@@ -743,10 +827,10 @@
         </div>
       </div>
 
-      <div class="project-card panel">
+      <div class="project-card panel reveal">
         <div class="project-top">
           <h3>APOD Explorer</h3>
-          <span class="tag">Explorer</span>
+          <span class="tag">Web App</span>
         </div>
         <ul>
           <li>Built an interactive explorer for NASA's Astronomy Picture of the Day, with dynamic image/video rendering, HD previews, and date-based discovery.</li>
@@ -763,12 +847,12 @@
     </div>
   </section>
 
-  <section class="section" id="experience">
+  <section class="section reveal" id="experience">
     <div class="wrap">
       <div class="eyebrow">Field Log</div>
       <h2>Experience</h2>
 
-      <div class="exp-card panel">
+      <div class="exp-card panel reveal">
         <div class="left">
           <div class="role">Software Intern</div>
           <div class="org">Agnirva Online Software Internship</div>
@@ -784,20 +868,20 @@
     </div>
   </section>
 
-  <section class="section" id="achievements">
+  <section class="section reveal" id="achievements">
     <div class="wrap">
       <div class="eyebrow">Achievements &amp; Certifications</div>
       <h2>Recognition</h2>
 
       <div class="badge-grid">
-        <div class="badge-card panel">
+        <div class="badge-card panel reveal">
           <div class="badge-icon">AI</div>
           <div>
             <h4>AI/ML with Data Science</h4>
             <p>Pravega, IISc Bangalore</p>
           </div>
         </div>
-        <div class="badge-card panel">
+        <div class="badge-card panel reveal">
           <div class="badge-icon">GA</div>
           <div>
             <h4>Workshop &amp; Internship Bootcamp — Generative AI and Agentic AI</h4>
@@ -808,12 +892,12 @@
     </div>
   </section>
 
-  <section class="contact-section wrap" id="contact">
+  <section class="contact-section wrap reveal" id="contact">
     <div class="eyebrow">Open Channel</div>
     <h2>Let's build something.</h2>
     <p class="sub">Open to entry-level software engineering roles and collaborations. Reach out through any channel below.</p>
     <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:niharikaks2004@gmail.com">Email Me</a>
+      <a class="btn btn-primary" href="mailto:niharikaks2004@gmail.com" id="emailLink">Email Me</a>
       <a class="btn btn-ghost" href="tel:+918095994397">+91 80959 94397</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/niharika-k-sheernali-1678962a1" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn-ghost" href="https://github.com/niharikaks2004-spec" target="_blank" rel="noopener">GitHub</a>
@@ -825,6 +909,9 @@
   </footer>
 
 </div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+<div class="copy-toast" id="copyToast">Email copied to clipboard</div>
 
 <script>
   // ---------- Starfield ambient background ----------
@@ -891,6 +978,89 @@
       }
     }
     setTimeout(type, 500);
+  })();
+
+  // ---------- Scroll reveal for sections & cards ----------
+  (function(){
+    const items = document.querySelectorAll('.reveal');
+    if (!items.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion){
+      items.forEach(el => el.classList.add('in-view'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    items.forEach(el => observer.observe(el));
+  })();
+
+  // ---------- Active nav link on scroll ----------
+  (function(){
+    const links = document.querySelectorAll('.nav-links a');
+    const sections = Array.from(links)
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    function onScroll(){
+      let current = sections[0];
+      const scrollPos = window.scrollY + 140;
+      for (const sec of sections){
+        if (sec.offsetTop <= scrollPos) current = sec;
+      }
+      links.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // ---------- Back to top button ----------
+  (function(){
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('show', window.scrollY > 500);
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  // ---------- Copy email to clipboard ----------
+  (function(){
+    const emailLink = document.getElementById('emailLink');
+    const toast = document.getElementById('copyToast');
+    if (!emailLink || !toast) return;
+
+    let toastTimer;
+    emailLink.addEventListener('click', (e) => {
+      const email = 'niharikaks2004@gmail.com';
+      if (navigator.clipboard){
+        e.preventDefault();
+        navigator.clipboard.writeText(email).then(() => {
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }).catch(() => {
+          window.location.href = 'mailto:' + email;
+        });
+      }
+    });
   })();
 </script>
 
